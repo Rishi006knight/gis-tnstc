@@ -20,7 +20,7 @@ import {
 export const FareCalculatorPage: React.FC = () => {
   const [originCity, setOriginCity] = useState('Chennai (Kilambakkam)');
   const [destinationCity, setDestinationCity] = useState('Madurai');
-  const [serviceCode, setServiceCode] = useState('DELUXE');
+  const [serviceCode, setServiceCode] = useState('ULTRA_DELUXE');
   const [travelDate, setTravelDate] = useState(() => new Date().toISOString().split('T')[0]);
   const [isGhatRoad, setIsGhatRoad] = useState(false);
   const [customDistance, setCustomDistance] = useState<string>('');
@@ -373,6 +373,47 @@ export const FareCalculatorPage: React.FC = () => {
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* Official Government Concessions & Travel Schemes */}
+      <div className="bg-gradient-to-br from-slate-900 to-tnstc-navy text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+        <div className="flex items-center space-x-2 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <Sparkles className="w-4 h-4" />
+          <span>Official Tamil Nadu Government Concession Schemes</span>
+        </div>
+        <h3 className="text-xl font-extrabold text-white tracking-tight mb-4">
+          Subsidized & Special Passenger Concessions
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+          <div className="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+            <span className="font-bold text-amber-300 block text-sm mb-1">Women & Transgender</span>
+            <p className="text-slate-300 leading-relaxed">
+              <strong>100% Free Travel</strong> in all Government ordinary town bus services across Tamil Nadu.
+            </p>
+          </div>
+
+          <div className="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+            <span className="font-bold text-amber-300 block text-sm mb-1">Students</span>
+            <p className="text-slate-300 leading-relaxed">
+              <strong>100% Free Pass</strong> for School students (up to 12th) & <strong>50% Concession</strong> for College/Polytechnic students.
+            </p>
+          </div>
+
+          <div className="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+            <span className="font-bold text-amber-300 block text-sm mb-1">Group Booking</span>
+            <p className="text-slate-300 leading-relaxed">
+              <strong>10% Flat Discount</strong> on ticket fare for a group of 10 or more passengers booking SETC services.
+            </p>
+          </div>
+
+          <div className="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+            <span className="font-bold text-amber-300 block text-sm mb-1">Regular Commuters</span>
+            <p className="text-slate-300 leading-relaxed">
+              <strong>33.33% Concession</strong> on Monthly Season Tickets (pay for 40 single trips, travel for full month).
+            </p>
+          </div>
         </div>
       </div>
     </div>

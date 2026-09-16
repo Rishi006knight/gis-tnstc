@@ -18,7 +18,9 @@ import {
   X,
   Navigation,
   Compass,
-  RotateCcw
+  RotateCcw,
+  Map,
+  Layers
 } from 'lucide-react';
 
 export const MotelMapPage: React.FC = () => {
@@ -31,6 +33,10 @@ export const MotelMapPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('All');
   const [districts, setDistricts] = useState<string[]>([]);
+
+  const [mapType, setMapType] = useState<'streets' | 'satellite'>('streets');
+  const streetLayerRef = useRef<L.TileLayer | null>(null);
+  const satelliteLayerGroupRef = useRef<L.LayerGroup | null>(null);
 
   // 1. Load data
   useEffect(() => {
@@ -54,11 +60,25 @@ export const MotelMapPage: React.FC = () => {
       zoomControl: true,
     });
 
-    // Add OpenStreetMap base tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Street Layer (OpenStreetMap)
+    const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
+    });
+
+    // Satellite Imagery (Esri World Imagery + Reference Labels)
+    const satTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+      attribution: '&copy; Esri, Maxar, Earthstar Geographics',
+    });
+    const satLabels = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+    });
+    const satelliteGroup = L.layerGroup([satTile, satLabels]);
+
+    streetLayer.addTo(map);
+    streetLayerRef.current = streetLayer;
+    satelliteLayerGroupRef.current = satelliteGroup;
 
     const markersLayer = L.layerGroup().addTo(map);
     mapInstanceRef.current = map;
@@ -69,6 +89,22 @@ export const MotelMapPage: React.FC = () => {
       mapInstanceRef.current = null;
     };
   }, []);
+
+  // Switch between Street and Satellite layers
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    const street = streetLayerRef.current;
+    const sat = satelliteLayerGroupRef.current;
+    if (!map || !street || !sat) return;
+
+    if (mapType === 'satellite') {
+      if (map.hasLayer(street)) map.removeLayer(street);
+      if (!map.hasLayer(sat)) sat.addTo(map);
+    } else {
+      if (map.hasLayer(sat)) map.removeLayer(sat);
+      if (!map.hasLayer(street)) street.addTo(map);
+    }
+  }, [mapType]);
 
   // 3. Filter Motels
   const filteredMotels = motels.filter(m => {
@@ -184,9 +220,37 @@ export const MotelMapPage: React.FC = () => {
         </div>
 
         {/* Counter & Actions */}
-        <div className="flex items-center space-x-3">
-          <div className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
-            Showing <span className="font-bold">{filteredMotels.length}</span> of {motels.length} Motels
+        <div className="flex items-center space-x-2.5">
+          {/* Base Map Toggle (Street vs Satellite) */}
+          <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200">
+            <button
+              onClick={() => setMapType('streets')}
+              className={`flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition ${
+                mapType === 'streets'
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+              title="Standard Street Map (OpenStreetMap)"
+            >
+              <Map className="w-3.5 h-3.5 text-blue-600" />
+              <span className="hidden sm:inline">Street</span>
+            </button>
+            <button
+              onClick={() => setMapType('satellite')}
+              className={`flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition ${
+                mapType === 'satellite'
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+              title="High Resolution Satellite Imagery (Esri World Imagery)"
+            >
+              <Layers className="w-3.5 h-3.5 text-amber-400" />
+              <span>Satellite</span>
+            </button>
+          </div>
+
+          <div className="hidden sm:inline-block text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
+            <span className="font-bold">{filteredMotels.length}</span> / {motels.length} Motels
           </div>
 
           <button
@@ -195,7 +259,7 @@ export const MotelMapPage: React.FC = () => {
             className="p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 transition flex items-center space-x-1 text-xs"
           >
             <RotateCcw className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Reset</span>
+            <span className="hidden md:inline">Reset</span>
           </button>
         </div>
       </div>
