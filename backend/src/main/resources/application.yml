@@ -5,13 +5,12 @@ spring:
   application:
     name: gis-tnstc-backend
   datasource:
-    # Set your Neon PostgreSQL connection string here or through environment variables
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://ep-example.ap-southeast-1.aws.neon.tech/neondb?sslmode=require}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://ep-odd-frog-b3mueoj9-pooler.c-4.ap-southeast-1.aws.neon.tech/neondb?sslmode=require}
     username: ${SPRING_DATASOURCE_USERNAME:neondb_owner}
-    password: ${SPRING_DATASOURCE_PASSWORD:secret}
+    password: ${SPRING_DATASOURCE_PASSWORD:npg_xWFPBmyhau27}
     driver-class-name: org.postgresql.Driver
   jpa:
-    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
