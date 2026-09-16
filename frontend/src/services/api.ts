@@ -106,30 +106,15 @@ export const apiService = {
         estimatedHours = +(distanceKm / 50).toFixed(1);
       }
 
-      const kmCharge = distanceKm * rate.ratePerKm;
-      const plainsFare = Math.max(rate.baseFare, Math.round(kmCharge * 100) / 100);
+      const rawFare = distanceKm * rate.ratePerKm;
+      const plainsFare = Math.round(rawFare);
+      const totalFare = isGhatApplied ? Math.round(rawFare * 1.20) : plainsFare;
+      const ghatSurcharge = totalFare - plainsFare;
+      const flexiSurge = 0;
 
-      const ghatSurcharge = isGhatApplied
-        ? Math.round(plainsFare * (rate.ghatRateMultiplier - 1) * 100) / 100
-        : 0;
-
-      // Flexi check
-      const travelDate = req.travelDate ? new Date(req.travelDate) : new Date();
-      const dayNum = travelDate.getDay(); // 0 is Sunday, 5 is Friday, 6 is Saturday
-      const isPeak = (dayNum === 0 || dayNum === 5 || dayNum === 6);
-      const dayNames = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-
-      const flexiSurge = (isPeak && rate.peakDayMultiplier > 1)
-        ? Math.round(plainsFare * (rate.peakDayMultiplier - 1) * 100) / 100
-        : 0;
-
-      const subtotal = plainsFare + ghatSurcharge + flexiSurge;
-      const totalFare = Math.ceil(subtotal);
-
-      let note = isGhatApplied ? 'Route includes ghat road: +20% surcharge applied.' : 'Standard plains highway route.';
-      if (isPeak) {
-        note += ` Peak weekend flexi surge applied (${dayNames[dayNum]}).`;
-      }
+      let note = isGhatApplied
+        ? `Ghat road / hill route surcharge applied (+20%). Calculation: Math.round(${distanceKm} km × ₹${rate.ratePerKm} × 1.20) = ₹${totalFare}`
+        : `Standard route fare. Calculation: Math.round(${distanceKm} km × ₹${rate.ratePerKm}) = ₹${totalFare}`;
 
       return {
         originCity: req.originCity,

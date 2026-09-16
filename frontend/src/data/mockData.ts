@@ -1489,20 +1489,20 @@ export const INITIAL_INSTITUTES: TrainingInstitute[] = [
 ];
 
 // ==============================================================================
-// 3. OFFICIAL ARASU BUS FARE STRUCTURE (Source: https://arasubus.tn.gov.in/fare.php)
+// 3. OFFICIAL TNSTC / SETC BUS FARE STRUCTURE (Source: https://www.tickettogetlost.com/tnstc-bus-fare-calculator/)
 // ==============================================================================
 export const INITIAL_FARE_RATES: FareRate[] = [
   {
     id: 1,
     serviceCode: 'ORDINARY',
-    serviceName: 'Ordinary (Town & Mofussil)',
+    serviceName: 'Ordinary',
     baseFare: 6.00,
     minimumDistanceKm: 5.0,
-    ratePerKm: 0.58, // 58 paise/km
-    ghatRateMultiplier: 1.20, // Basic fare + 20%
+    ratePerKm: 0.58, // ₹0.58 / km
+    ghatRateMultiplier: 1.20, // +20%
     leanDayMultiplier: 1.00,
     peakDayMultiplier: 1.00,
-    description: 'Notified rate: 58 paise per passenger kilometer. Stopping mofussil service.'
+    description: 'City & Mofussil ordinary stop-to-stop service at ₹0.58 per km.'
   },
   {
     id: 2,
@@ -1510,23 +1510,23 @@ export const INITIAL_FARE_RATES: FareRate[] = [
     serviceName: 'Express',
     baseFare: 12.00,
     minimumDistanceKm: 10.0,
-    ratePerKm: 0.75, // 75 paise/km
+    ratePerKm: 0.75, // ₹0.75 / km
     ghatRateMultiplier: 1.20,
     leanDayMultiplier: 1.00,
     peakDayMultiplier: 1.00,
-    description: 'Notified rate: 75 paise per passenger kilometer. Limited-stop intercity service.'
+    description: 'Limited stop intercity service connecting key towns at ₹0.75 per km.'
   },
   {
     id: 3,
-    serviceCode: 'EXP_SUP_DELUXE',
-    serviceName: 'Express / Super Deluxe',
+    serviceCode: 'EXP_DELUXE',
+    serviceName: 'Express / Deluxe (Highway Riders)',
     baseFare: 20.00,
     minimumDistanceKm: 15.0,
-    ratePerKm: 0.85, // 85 paise/km
+    ratePerKm: 0.85, // ₹0.85 / km
     ghatRateMultiplier: 1.20,
     leanDayMultiplier: 1.00,
-    peakDayMultiplier: 1.05,
-    description: 'Notified rate: 85 paise per passenger kilometer. 2x2 push-back seating coach.'
+    peakDayMultiplier: 1.00,
+    description: 'Highway Riders deluxe coach with 2x2 pushback seating at ₹0.85 per km.'
   },
   {
     id: 4,
@@ -1534,71 +1534,59 @@ export const INITIAL_FARE_RATES: FareRate[] = [
     serviceName: 'Ultra Deluxe',
     baseFare: 30.00,
     minimumDistanceKm: 20.0,
-    ratePerKm: 1.00, // 100 paise = 1.00 INR/km
+    ratePerKm: 1.00, // ₹1.00 / km
     ghatRateMultiplier: 1.20,
     leanDayMultiplier: 1.00,
-    peakDayMultiplier: 1.10,
-    description: 'Notified rate: 100 paise per passenger kilometer. Long-distance air-suspension coach.'
+    peakDayMultiplier: 1.00,
+    description: 'SETC long-distance non-AC air-suspension coaches at ₹1.00 per km.'
   },
   {
     id: 5,
-    serviceCode: 'CLASSIC_TOILET',
-    serviceName: 'Ultra Deluxe with Toilet (Classic Bus)',
-    baseFare: 35.00,
+    serviceCode: 'AC',
+    serviceName: 'AC',
+    baseFare: 50.00,
     minimumDistanceKm: 20.0,
-    ratePerKm: 1.05, // 105 paise lean / 115 paise peak
+    ratePerKm: 1.30, // ₹1.30 / km
     ghatRateMultiplier: 1.20,
-    leanDayMultiplier: 1.00, // 105 paise
-    peakDayMultiplier: 1.095, // 115 paise (Fri-Sun)
-    description: 'SETC Flexi Charge: 105 paise (Lean Mon-Thu) / 115 paise (Peak Fri-Sun).'
+    leanDayMultiplier: 1.00,
+    peakDayMultiplier: 1.00,
+    description: 'Air-conditioned seater buses for comfortable travel at ₹1.30 per km.'
   },
   {
     id: 6,
     serviceCode: 'NON_AC_SLEEPER',
-    serviceName: 'Non-Air Conditioned Sleeper Bus',
+    serviceName: 'Non AC Sleeper',
     baseFare: 50.00,
     minimumDistanceKm: 25.0,
-    ratePerKm: 1.35, // 135 paise lean / 155 paise peak
+    ratePerKm: 1.55, // ₹1.55 / km
     ghatRateMultiplier: 1.20,
-    leanDayMultiplier: 1.00, // 135 paise
-    peakDayMultiplier: 1.148, // 155 paise (Fri-Sun)
-    description: 'SETC Flexi Charge: 135 paise (Lean Mon-Thu) / 155 paise (Peak Fri-Sun).'
+    leanDayMultiplier: 1.00,
+    peakDayMultiplier: 1.00,
+    description: 'Overnight berths without air conditioning at ₹1.55 per km.'
   },
   {
     id: 7,
-    serviceCode: 'AC_COACHES',
-    serviceName: 'A/C Coaches',
-    baseFare: 50.00,
-    minimumDistanceKm: 20.0,
-    ratePerKm: 1.30, // 130 paise = 1.30 INR/km
+    serviceCode: 'AC_VOLVO',
+    serviceName: 'A/C Volvo',
+    baseFare: 120.00,
+    minimumDistanceKm: 30.0,
+    ratePerKm: 1.70, // ₹1.70 / km
     ghatRateMultiplier: 1.20,
     leanDayMultiplier: 1.00,
-    peakDayMultiplier: 1.10,
-    description: 'Notified rate: 130 paise per passenger kilometer. Climate-controlled seater.'
+    peakDayMultiplier: 1.00,
+    description: 'Premium multi-axle Volvo coaches with air-suspension at ₹1.70 per km.'
   },
   {
     id: 8,
     serviceCode: 'AC_SLEEPER',
-    serviceName: 'Air Conditioned Sleeper Bus',
+    serviceName: 'AC Sleeper',
     baseFare: 100.00,
     minimumDistanceKm: 30.0,
-    ratePerKm: 1.80, // 180 paise lean / 200 paise peak
-    ghatRateMultiplier: 1.20,
-    leanDayMultiplier: 1.00, // 180 paise
-    peakDayMultiplier: 1.111, // 200 paise (Fri-Sun)
-    description: 'SETC Flexi Charge: 180 paise (Lean Mon-Thu) / 200 paise (Peak Fri-Sun).'
-  },
-  {
-    id: 9,
-    serviceCode: 'AC_VOLVO',
-    serviceName: 'A/C Volvo Multi-Axle Coaches',
-    baseFare: 120.00,
-    minimumDistanceKm: 30.0,
-    ratePerKm: 1.70, // 170 paise = 1.70 INR/km
+    ratePerKm: 2.00, // ₹2.00 / km
     ghatRateMultiplier: 1.20,
     leanDayMultiplier: 1.00,
-    peakDayMultiplier: 1.15,
-    description: 'Notified rate: 170 paise per passenger kilometer. Premium Volvo executive coach.'
+    peakDayMultiplier: 1.00,
+    description: 'Fully air-conditioned luxury sleeper coaches at ₹2.00 per km.'
   }
 ];
 
