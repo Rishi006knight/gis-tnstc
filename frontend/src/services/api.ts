@@ -66,7 +66,8 @@ export const apiService = {
     try {
       const res = await fetch(`${API_BASE}/fare/rates`);
       if (!res.ok) throw new Error('API fetch failed');
-      return await res.json();
+      const data = await res.json();
+      return (Array.isArray(data) && data.length > 0) ? data : INITIAL_FARE_RATES;
     } catch {
       return INITIAL_FARE_RATES;
     }

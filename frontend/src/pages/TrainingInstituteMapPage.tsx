@@ -175,9 +175,9 @@ export const TrainingInstituteMapPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-140px)] min-h-[600px] -mt-2 -mb-8 -mx-4 sm:-mx-6 lg:-mx-8">
+    <div className="flex flex-col h-[calc(100vh-180px)] min-h-[620px] max-h-[850px] w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mb-12">
       {/* Top Filter and Search Bar */}
-      <div className="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 z-20 shadow-sm flex flex-wrap items-center justify-between gap-3">
+      <div className="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 z-20 shadow-xs flex flex-wrap items-center justify-between gap-3 shrink-0">
         <div className="flex flex-wrap items-center gap-3 flex-1 min-w-[300px]">
           {/* Search Bar */}
           <div className="relative flex-1 min-w-[200px] max-w-sm">
@@ -277,35 +277,35 @@ export const TrainingInstituteMapPage: React.FC = () => {
       </div>
 
       {/* Map + Detail Panel */}
-      <div className="relative flex-1 w-full h-full overflow-hidden">
+      <div className="relative flex-1 w-full h-full min-h-0 overflow-hidden">
         <div ref={mapContainerRef} className="w-full h-full" />
 
         {selectedInstitute && (
-          <aside className="absolute bottom-0 left-0 right-0 sm:bottom-4 sm:left-auto sm:right-4 sm:top-4 w-full sm:w-96 max-h-[75vh] sm:max-h-[calc(100%-2rem)] z-30 bg-white sm:rounded-2xl border border-slate-200/90 shadow-2xl overflow-y-auto flex flex-col transition-all duration-300 animate-in fade-in slide-in-from-bottom sm:slide-in-from-right">
+          <aside className="absolute top-2 right-2 bottom-2 left-2 sm:left-auto sm:top-3 sm:right-3 sm:bottom-3 w-auto sm:w-[380px] max-h-[calc(100%-1rem)] sm:max-h-[calc(100%-1.5rem)] z-30 bg-white rounded-2xl border border-slate-200/90 shadow-2xl flex flex-col overflow-hidden transition-all duration-300 animate-in fade-in slide-in-from-bottom sm:slide-in-from-right">
             {/* Header */}
-            <div className="sticky top-0 bg-white/95 backdrop-blur-md px-5 py-4 border-b border-slate-100 flex items-start justify-between z-10">
+            <div className="shrink-0 bg-white/95 backdrop-blur-md px-5 py-3.5 border-b border-slate-100 flex items-start justify-between z-10">
               <div>
                 <span className="inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
                   IRT Govt Centre • Estd {selectedInstitute.establishedYear}
                 </span>
-                <h3 className="text-lg font-bold text-slate-900 mt-1 leading-snug">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-1 leading-snug">
                   {selectedInstitute.name}
                 </h3>
                 <p className="text-xs text-slate-500 flex items-center space-x-1 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
+                  <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                   <span>{selectedInstitute.locationName}, {selectedInstitute.district}</span>
                 </p>
               </div>
               <button
                 onClick={() => setSelectedInstitute(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition shrink-0"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Body */}
-            <div className="p-5 space-y-4 text-xs text-slate-600 flex-1">
+            {/* Body with independent scroll */}
+            <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-5 space-y-4 text-xs text-slate-600 overscroll-contain">
               {/* Infrastructure Indicators */}
               <div className="grid grid-cols-3 gap-2 text-center bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                 <div className="p-1">
@@ -397,34 +397,46 @@ export const TrainingInstituteMapPage: React.FC = () => {
                   {selectedInstitute.address}
                 </p>
               </div>
+            </div>
 
-              {/* Action Buttons */}
-              <div className="pt-2 flex items-center space-x-2">
+            {/* Pinned Action Footer */}
+            <div className="p-3 sm:p-4 bg-white border-t border-slate-100 shrink-0 flex items-center space-x-2">
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${selectedInstitute.latitude},${selectedInstitute.longitude}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-center flex items-center justify-center space-x-1.5 shadow-md shadow-amber-600/20 transition"
+              >
+                <Navigation className="w-4 h-4" />
+                <span>Navigate</span>
+              </a>
+
+              {selectedInstitute.websiteUrl && (
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${selectedInstitute.latitude},${selectedInstitute.longitude}`}
+                  href={selectedInstitute.websiteUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-center flex items-center justify-center space-x-1.5 shadow-md shadow-amber-600/20 transition"
+                  className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition"
+                  title="Open IRT Website"
                 >
-                  <Navigation className="w-4 h-4" />
-                  <span>Navigate</span>
+                  <ExternalLink className="w-4 h-4" />
                 </a>
-
-                {selectedInstitute.websiteUrl && (
-                  <a
-                    href={selectedInstitute.websiteUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition"
-                    title="Open IRT Website"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
+              )}
             </div>
           </aside>
         )}
+      </div>
+
+      {/* Clean Bottom Status Bar */}
+      <div className="bg-white border-t border-slate-200 px-4 py-2.5 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-2 shrink-0 z-10">
+        <div className="flex items-center space-x-2">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span className="font-medium text-slate-700">Official IRT Driver Training Institutes GIS</span>
+          <span className="hidden md:inline text-slate-400">• Click any centre on map to view courses, eligibility & contact</span>
+        </div>
+        <div className="text-[11px] text-slate-500 font-medium">
+          17 Government Centres • PostGIS Enabled
+        </div>
       </div>
     </div>
   );

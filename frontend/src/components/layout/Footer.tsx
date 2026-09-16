@@ -13,11 +13,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Col 1: Portal Overview */}
           <div className="md:col-span-1 space-y-3">
-            <div className="flex items-center space-x-2.5 text-white font-bold text-base">
-              <div className="w-8 h-8 rounded-lg bg-tnstc-blue flex items-center justify-center">
-                <Bus className="w-4 h-4 text-white" />
+            <div className="flex items-center space-x-3 text-white font-bold text-base">
+              <div className="w-10 h-10 rounded-full bg-white p-0.5 shadow-sm flex items-center justify-center shrink-0">
+                <img src="/tnstc-logo.png" alt="TNSTC" className="w-full h-full object-contain rounded-full" />
               </div>
-              <span>TNSTC GIS Portal</span>
+              <div>
+                <span className="block leading-tight">TNSTC GIS Portal</span>
+                <span className="text-[10px] text-slate-400 font-normal">தமிழ்நாடு அரசு போக்குவரத்து கழகம்</span>
+              </div>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Spatial Information System for Tamil Nadu State Transport Undertakings (SETC, TNSTC, MTC). Providing live highway stop, training institute, and route fare data.

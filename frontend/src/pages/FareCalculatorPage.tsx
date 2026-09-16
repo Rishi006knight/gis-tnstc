@@ -64,6 +64,8 @@ export const FareCalculatorPage: React.FC = () => {
     }
   }, [originCity, destinationCity, calcMode]);
 
+  const activeRates = (rates && rates.length > 0) ? rates : INITIAL_FARE_RATES;
+
   // Compute fare using tickettogetlost.com formula:
   // Math.round(distance * perKmRate * (isGhat ? 1.20 : 1.0))
   useEffect(() => {
@@ -73,11 +75,12 @@ export const FareCalculatorPage: React.FC = () => {
       return;
     }
     setErrorMessage('');
-    const rate = rates.find(r => r.serviceCode === selectedServiceCode) || rates[0];
+    const rate = activeRates.find(r => r.serviceCode === selectedServiceCode) || activeRates[0];
     const multiplier = isGhatRoad ? 1.20 : 1.00;
-    const fare = Math.round(dist * rate.ratePerKm * multiplier);
+    const ratePerKm = rate?.ratePerKm || 0.58;
+    const fare = Math.round(dist * ratePerKm * multiplier);
     setCalculatedFare(fare);
-  }, [distanceKm, selectedServiceCode, isGhatRoad, rates]);
+  }, [distanceKm, selectedServiceCode, isGhatRoad, activeRates]);
 
   const handleSwapCities = () => {
     const temp = originCity;
@@ -94,12 +97,13 @@ export const FareCalculatorPage: React.FC = () => {
       return;
     }
     setErrorMessage('');
-    const rate = rates.find(r => r.serviceCode === selectedServiceCode) || rates[0];
+    const rate = activeRates.find(r => r.serviceCode === selectedServiceCode) || activeRates[0];
     const multiplier = isGhatRoad ? 1.20 : 1.00;
-    setCalculatedFare(Math.round(dist * rate.ratePerKm * multiplier));
+    const ratePerKm = rate?.ratePerKm || 0.58;
+    setCalculatedFare(Math.round(dist * ratePerKm * multiplier));
   };
 
-  const currentRate = rates.find(r => r.serviceCode === selectedServiceCode) || rates[0];
+  const currentRate = activeRates.find(r => r.serviceCode === selectedServiceCode) || activeRates[0];
   const parsedDist = parseFloat(distanceKm) || 0;
 
   return (
@@ -253,7 +257,7 @@ export const FareCalculatorPage: React.FC = () => {
               onChange={e => setSelectedServiceCode(e.target.value)}
               className="w-full py-3 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#0d47a1]/30 focus:border-[#0d47a1] text-sm font-semibold text-slate-800 transition"
             >
-              {rates.map(r => (
+              {activeRates.map(r => (
                 <option key={r.serviceCode} value={r.serviceCode}>
                   {r.serviceName} (₹{r.ratePerKm.toFixed(2)} / km)
                 </option>
@@ -332,7 +336,7 @@ export const FareCalculatorPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {rates.map(r => {
+            {activeRates.map(r => {
               const fareVal = Math.round(parsedDist * r.ratePerKm * (isGhatRoad ? 1.20 : 1.00));
               const isSelected = r.serviceCode === selectedServiceCode;
               return (
@@ -533,7 +537,7 @@ export const FareCalculatorPage: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-slate-700">
-              {rates.map(r => (
+              {activeRates.map(r => (
                 <tr key={r.id} className="hover:bg-slate-50/80 transition">
                   <td className="py-2.5 px-3 font-medium text-slate-900">{r.serviceName}</td>
                   <td className="py-2.5 px-3 font-mono font-bold text-[#0d47a1]">₹{r.ratePerKm.toFixed(2)} / km</td>

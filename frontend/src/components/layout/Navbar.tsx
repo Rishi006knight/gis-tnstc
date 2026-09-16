@@ -65,8 +65,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             onClick={() => onNavigate('home')}
             className="flex items-center space-x-3.5 cursor-pointer group"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-tnstc-blue to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
-              <Bus className="w-6 h-6" />
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white p-0.5 shadow-md border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
+              <img src="/tnstc-logo.png" alt="TNSTC Official Emblem" className="w-full h-full object-contain rounded-full" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
