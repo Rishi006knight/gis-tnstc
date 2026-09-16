@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gis-tnstc-backend
+  datasource:
+    # Set your Neon PostgreSQL connection string here or through environment variables
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://ep-example.ap-southeast-1.aws.neon.tech/neondb?sslmode=require}
+    username: ${SPRING_DATASOURCE_USERNAME:neondb_owner}
+    password: ${SPRING_DATASOURCE_PASSWORD:secret}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  cors:
+    allowed-origins: "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
