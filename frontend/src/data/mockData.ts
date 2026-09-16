@@ -1600,46 +1600,523 @@ export interface IntercityRouteData {
 }
 
 export const POPULAR_ROUTES: IntercityRouteData[] = [
+  // Major corridors from Chennai (Kilambakkam - KCBT)
   { origin: 'Chennai (Kilambakkam)', destination: 'Tiruchirappalli', distanceKm: 315, estimatedHours: 5.5, isGhatRoute: false, ghatKm: 0 },
   { origin: 'Chennai (Kilambakkam)', destination: 'Madurai', distanceKm: 445, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
   { origin: 'Chennai (Kilambakkam)', destination: 'Salem', distanceKm: 330, estimatedHours: 6.0, isGhatRoute: false, ghatKm: 0 },
   { origin: 'Chennai (Kilambakkam)', destination: 'Coimbatore', distanceKm: 495, estimatedHours: 8.5, isGhatRoute: false, ghatKm: 0 },
   { origin: 'Chennai (Kilambakkam)', destination: 'Tirunelveli', distanceKm: 605, estimatedHours: 10.0, isGhatRoute: false, ghatKm: 0 },
-  { origin: 'Chennai (Kilambakkam)', destination: 'Kanyakumari', distanceKm: 690, estimatedHours: 11.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Nagercoil', distanceKm: 685, estimatedHours: 11.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Kanyakumari', distanceKm: 700, estimatedHours: 12.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Rameswaram', distanceKm: 560, estimatedHours: 10.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Thoothukudi', distanceKm: 590, estimatedHours: 10.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Thanjavur', distanceKm: 330, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Kumbakonam', distanceKm: 280, estimatedHours: 6.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Velankanni', distanceKm: 315, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Nagapattinam', distanceKm: 300, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Mayiladuthurai', distanceKm: 260, estimatedHours: 5.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Chidambaram', distanceKm: 215, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Cuddalore', distanceKm: 170, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Puducherry', distanceKm: 140, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Villupuram', distanceKm: 140, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Kallakurichi', distanceKm: 210, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Tiruvannamalai', distanceKm: 185, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Vellore', distanceKm: 130, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Hosur', distanceKm: 290, estimatedHours: 5.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Bengaluru (Shantinagar BS)', distanceKm: 345, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Erode', distanceKm: 395, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Tiruppur', distanceKm: 445, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Dindigul', distanceKm: 400, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Theni', distanceKm: 480, estimatedHours: 8.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Tenkasi (Courtallam)', distanceKm: 615, estimatedHours: 11.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Karaikudi', distanceKm: 405, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Pudukkottai', distanceKm: 370, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Sivakasi', distanceKm: 520, estimatedHours: 9.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Tiruchendur', distanceKm: 645, estimatedHours: 11.5, isGhatRoute: false, ghatKm: 0 },
+
+  // Hill station routes from Chennai (Ghat routes +20%)
   { origin: 'Chennai (Kilambakkam)', destination: 'Ooty (Udhagamandalam)', distanceKm: 535, estimatedHours: 11.0, isGhatRoute: true, ghatKm: 48 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Coonoor', distanceKm: 515, estimatedHours: 10.5, isGhatRoute: true, ghatKm: 35 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Kotagiri', distanceKm: 505, estimatedHours: 10.5, isGhatRoute: true, ghatKm: 30 },
   { origin: 'Chennai (Kilambakkam)', destination: 'Kodaikanal', distanceKm: 510, estimatedHours: 10.5, isGhatRoute: true, ghatKm: 52 },
-  { origin: 'Madurai', destination: 'Ooty (Udhagamandalam)', distanceKm: 270, estimatedHours: 7.0, isGhatRoute: true, ghatKm: 48 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Yercaud', distanceKm: 360, estimatedHours: 7.5, isGhatRoute: true, ghatKm: 32 },
+  { origin: 'Chennai (Kilambakkam)', destination: 'Valparai', distanceKm: 595, estimatedHours: 12.5, isGhatRoute: true, ghatKm: 64 },
+
+  // Coimbatore Hub Corridors
   { origin: 'Coimbatore', destination: 'Ooty (Udhagamandalam)', distanceKm: 86, estimatedHours: 3.2, isGhatRoute: true, ghatKm: 48 },
-  { origin: 'Tiruchirappalli', destination: 'Madurai', distanceKm: 135, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
-  { origin: 'Salem', destination: 'Coimbatore', distanceKm: 165, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Coonoor', distanceKm: 70, estimatedHours: 2.5, isGhatRoute: true, ghatKm: 35 },
+  { origin: 'Coimbatore', destination: 'Kotagiri', distanceKm: 72, estimatedHours: 2.5, isGhatRoute: true, ghatKm: 30 },
+  { origin: 'Coimbatore', destination: 'Valparai', distanceKm: 105, estimatedHours: 4.0, isGhatRoute: true, ghatKm: 64 },
+  { origin: 'Coimbatore', destination: 'Salem', distanceKm: 165, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Erode', distanceKm: 100, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Tiruppur', distanceKm: 55, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Madurai', distanceKm: 215, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Tiruchirappalli', distanceKm: 215, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Tirunelveli', distanceKm: 360, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Nagercoil', distanceKm: 430, estimatedHours: 8.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Kanyakumari', distanceKm: 445, estimatedHours: 9.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Dindigul', distanceKm: 155, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Palani', distanceKm: 105, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Theni', distanceKm: 170, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Kodaikanal', distanceKm: 175, estimatedHours: 5.0, isGhatRoute: true, ghatKm: 52 },
+  { origin: 'Coimbatore', destination: 'Bengaluru (Shantinagar BS)', distanceKm: 360, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Coimbatore', destination: 'Palakkad', distanceKm: 50, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+
+  // Madurai Hub Corridors
+  { origin: 'Madurai', destination: 'Tiruchirappalli', distanceKm: 135, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
   { origin: 'Madurai', destination: 'Tirunelveli', distanceKm: 160, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
-  { origin: 'Chennai (Kilambakkam)', destination: 'Vellore', distanceKm: 125, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
-  { origin: 'Chennai (Kilambakkam)', destination: 'Kumbakonam', distanceKm: 280, estimatedHours: 6.0, isGhatRoute: false, ghatKm: 0 }
+  { origin: 'Madurai', destination: 'Nagercoil', distanceKm: 235, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Kanyakumari', distanceKm: 245, estimatedHours: 5.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Thoothukudi', distanceKm: 145, estimatedHours: 2.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Tiruchendur', distanceKm: 180, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Rameswaram', distanceKm: 170, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Tenkasi (Courtallam)', distanceKm: 160, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Theni', distanceKm: 75, estimatedHours: 1.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Dindigul', distanceKm: 65, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Kodaikanal', distanceKm: 120, estimatedHours: 3.5, isGhatRoute: true, ghatKm: 52 },
+  { origin: 'Madurai', destination: 'Ooty (Udhagamandalam)', distanceKm: 270, estimatedHours: 7.0, isGhatRoute: true, ghatKm: 48 },
+  { origin: 'Madurai', destination: 'Salem', distanceKm: 230, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Erode', distanceKm: 195, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Virudhunagar', distanceKm: 48, estimatedHours: 1.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Sivakasi', distanceKm: 75, estimatedHours: 1.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Karaikudi', distanceKm: 85, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Sivagangai', distanceKm: 48, estimatedHours: 1.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Pudukkottai', distanceKm: 100, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Thanjavur', distanceKm: 190, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Madurai', destination: 'Kumbakonam', distanceKm: 230, estimatedHours: 4.8, isGhatRoute: false, ghatKm: 0 },
+
+  // Tiruchirappalli (Trichy) Corridors
+  { origin: 'Tiruchirappalli', destination: 'Thanjavur', distanceKm: 55, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Kumbakonam', distanceKm: 95, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Pudukkottai', distanceKm: 55, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Karaikudi', distanceKm: 90, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Salem', distanceKm: 140, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Erode', distanceKm: 150, estimatedHours: 3.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Karur', distanceKm: 80, estimatedHours: 1.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Dindigul', distanceKm: 100, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Velankanni', distanceKm: 150, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Nagapattinam', distanceKm: 145, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Cuddalore', distanceKm: 165, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Tiruvannamalai', distanceKm: 180, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Rameswaram', distanceKm: 230, estimatedHours: 5.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Tirunelveli', distanceKm: 295, estimatedHours: 5.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Kanyakumari', distanceKm: 380, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tiruchirappalli', destination: 'Kodaikanal', distanceKm: 195, estimatedHours: 4.5, isGhatRoute: true, ghatKm: 52 },
+  { origin: 'Tiruchirappalli', destination: 'Ooty (Udhagamandalam)', distanceKm: 290, estimatedHours: 7.0, isGhatRoute: true, ghatKm: 48 },
+
+  // Salem & Western Corridors
+  { origin: 'Salem', destination: 'Yercaud', distanceKm: 32, estimatedHours: 1.0, isGhatRoute: true, ghatKm: 28 },
+  { origin: 'Salem', destination: 'Namakkal', distanceKm: 55, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Karur', distanceKm: 95, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Dharmapuri', distanceKm: 65, estimatedHours: 1.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Krishnagiri', distanceKm: 110, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Hosur', distanceKm: 155, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Bengaluru (Shantinagar BS)', distanceKm: 200, estimatedHours: 4.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Tiruvannamalai', distanceKm: 145, estimatedHours: 3.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Salem', destination: 'Vellore', distanceKm: 205, estimatedHours: 4.2, isGhatRoute: false, ghatKm: 0 },
+
+  // Tirunelveli & Deep South Corridors
+  { origin: 'Tirunelveli', destination: 'Nagercoil', distanceKm: 75, estimatedHours: 1.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Kanyakumari', distanceKm: 85, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Thoothukudi', distanceKm: 50, estimatedHours: 1.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Tiruchendur', distanceKm: 60, estimatedHours: 1.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Tenkasi (Courtallam)', distanceKm: 55, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Shenkottai', distanceKm: 65, estimatedHours: 1.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Thiruvananthapuram', distanceKm: 145, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Sivakasi', distanceKm: 110, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Rameswaram', distanceKm: 220, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirunelveli', destination: 'Kodaikanal', distanceKm: 280, estimatedHours: 6.5, isGhatRoute: true, ghatKm: 52 },
+  { origin: 'Tirunelveli', destination: 'Ooty (Udhagamandalam)', distanceKm: 430, estimatedHours: 9.5, isGhatRoute: true, ghatKm: 48 },
+
+  // Delta & Coastal Corridors
+  { origin: 'Thanjavur', destination: 'Kumbakonam', distanceKm: 40, estimatedHours: 1.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thanjavur', destination: 'Pudukkottai', distanceKm: 58, estimatedHours: 1.3, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thanjavur', destination: 'Nagapattinam', distanceKm: 85, estimatedHours: 2.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thanjavur', destination: 'Velankanni', distanceKm: 90, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thanjavur', destination: 'Tiruvarur', distanceKm: 60, estimatedHours: 1.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Kumbakonam', destination: 'Mayiladuthurai', distanceKm: 35, estimatedHours: 0.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Kumbakonam', destination: 'Chidambaram', distanceKm: 70, estimatedHours: 1.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Puducherry', destination: 'Cuddalore', distanceKm: 24, estimatedHours: 0.6, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Puducherry', destination: 'Chidambaram', distanceKm: 65, estimatedHours: 1.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Puducherry', destination: 'Nagapattinam', distanceKm: 140, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Puducherry', destination: 'Velankanni', distanceKm: 155, estimatedHours: 3.8, isGhatRoute: false, ghatKm: 0 },
+
+  // Hill Station Short Hops (Direct Ghat climbs)
+  { origin: 'Mettupalayam', destination: 'Ooty (Udhagamandalam)', distanceKm: 52, estimatedHours: 2.2, isGhatRoute: true, ghatKm: 48 },
+  { origin: 'Mettupalayam', destination: 'Coonoor', distanceKm: 35, estimatedHours: 1.5, isGhatRoute: true, ghatKm: 30 },
+  { origin: 'Dindigul', destination: 'Kodaikanal', distanceKm: 95, estimatedHours: 3.0, isGhatRoute: true, ghatKm: 52 },
+  { origin: 'Pollachi', destination: 'Valparai', distanceKm: 64, estimatedHours: 2.8, isGhatRoute: true, ghatKm: 58 },
+  { origin: 'Theni', destination: 'Megamalai', distanceKm: 60, estimatedHours: 3.0, isGhatRoute: true, ghatKm: 45 },
+  { origin: 'Theni', destination: 'Bodinayakanur', distanceKm: 16, estimatedHours: 0.4, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Theni', destination: 'Cumbum', distanceKm: 42, estimatedHours: 1.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Theni', destination: 'Kumily', distanceKm: 65, estimatedHours: 1.8, isGhatRoute: true, ghatKm: 30 },
+  { origin: 'Ooty (Udhagamandalam)', destination: 'Gudalur', distanceKm: 50, estimatedHours: 2.0, isGhatRoute: true, ghatKm: 35 },
+  { origin: 'Ooty (Udhagamandalam)', destination: 'Kotagiri', distanceKm: 28, estimatedHours: 1.0, isGhatRoute: true, ghatKm: 25 },
+  // High-Demand Interstate Corridors: Karnataka / Bengaluru & Mysuru
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Chennai (Kilambakkam)', distanceKm: 345, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Coimbatore', distanceKm: 360, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Salem', distanceKm: 200, estimatedHours: 4.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Tiruchirappalli', distanceKm: 340, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Madurai', distanceKm: 435, estimatedHours: 8.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Tirunelveli', distanceKm: 585, estimatedHours: 10.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Nagercoil', distanceKm: 660, estimatedHours: 11.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Kanyakumari', distanceKm: 675, estimatedHours: 12.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Ooty (Udhagamandalam)', distanceKm: 275, estimatedHours: 7.0, isGhatRoute: true, ghatKm: 48 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Kodaikanal', distanceKm: 460, estimatedHours: 9.5, isGhatRoute: true, ghatKm: 52 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Kumbakonam', distanceKm: 380, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Thanjavur', distanceKm: 390, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Tiruvannamalai', distanceKm: 210, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Vellore', distanceKm: 215, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Erode', distanceKm: 250, estimatedHours: 5.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Tiruppur', distanceKm: 310, estimatedHours: 6.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Dindigul', distanceKm: 375, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Pudukkottai', distanceKm: 390, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Rameswaram', distanceKm: 590, estimatedHours: 11.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Tenkasi (Courtallam)', distanceKm: 590, estimatedHours: 11.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Bengaluru (Shantinagar BS)', destination: 'Puducherry', distanceKm: 310, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Mysuru', destination: 'Coimbatore', distanceKm: 200, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Mysuru', destination: 'Ooty (Udhagamandalam)', distanceKm: 125, estimatedHours: 3.5, isGhatRoute: true, ghatKm: 35 },
+
+  // High-Demand Interstate Corridors: Kerala / Thiruvananthapuram, Kochi & Palakkad
+  { origin: 'Thiruvananthapuram', destination: 'Nagercoil', distanceKm: 70, estimatedHours: 1.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Kanyakumari', distanceKm: 90, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Tirunelveli', distanceKm: 145, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Madurai', distanceKm: 305, estimatedHours: 6.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Chennai (Kilambakkam)', distanceKm: 750, estimatedHours: 13.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Coimbatore', distanceKm: 380, estimatedHours: 8.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Tiruchendur', distanceKm: 180, estimatedHours: 4.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Tenkasi (Courtallam)', distanceKm: 110, estimatedHours: 2.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Thoothukudi', distanceKm: 195, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Tiruchirappalli', distanceKm: 440, estimatedHours: 8.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Thiruvananthapuram', destination: 'Salem', distanceKm: 530, estimatedHours: 10.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Palakkad', destination: 'Coimbatore', distanceKm: 50, estimatedHours: 1.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Palakkad', destination: 'Pollachi', distanceKm: 45, estimatedHours: 1.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Palakkad', destination: 'Tiruppur', distanceKm: 105, estimatedHours: 2.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Palakkad', destination: 'Erode', distanceKm: 150, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Palakkad', destination: 'Salem', distanceKm: 215, estimatedHours: 4.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Palakkad', destination: 'Chennai (Kilambakkam)', distanceKm: 545, estimatedHours: 9.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Kochi (Ernakulam)', destination: 'Coimbatore', distanceKm: 190, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Kochi (Ernakulam)', destination: 'Madurai', distanceKm: 265, estimatedHours: 6.5, isGhatRoute: true, ghatKm: 45 },
+  { origin: 'Kochi (Ernakulam)', destination: 'Chennai (Kilambakkam)', distanceKm: 685, estimatedHours: 12.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Munnar', destination: 'Theni', distanceKm: 85, estimatedHours: 2.5, isGhatRoute: true, ghatKm: 45 },
+  { origin: 'Munnar', destination: 'Madurai', distanceKm: 160, estimatedHours: 4.5, isGhatRoute: true, ghatKm: 45 },
+  { origin: 'Munnar', destination: 'Coimbatore', distanceKm: 160, estimatedHours: 4.5, isGhatRoute: true, ghatKm: 55 },
+  { origin: 'Guruvayur', destination: 'Coimbatore', distanceKm: 135, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Guruvayur', destination: 'Chennai (Kilambakkam)', distanceKm: 630, estimatedHours: 11.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Kozhikode', destination: 'Ooty (Udhagamandalam)', distanceKm: 160, estimatedHours: 4.8, isGhatRoute: true, ghatKm: 45 },
+  { origin: 'Kozhikode', destination: 'Coimbatore', distanceKm: 180, estimatedHours: 4.5, isGhatRoute: false, ghatKm: 0 },
+
+  // High-Demand Interstate Corridors: Andhra Pradesh / Tirupati, Kalahasti & Nellore
+  { origin: 'Tirupati', destination: 'Chennai (Kilambakkam)', distanceKm: 145, estimatedHours: 3.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Chennai (CMBT)', distanceKm: 135, estimatedHours: 3.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Vellore', distanceKm: 105, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Tiruvannamalai', distanceKm: 195, estimatedHours: 4.2, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Kanchipuram', distanceKm: 110, estimatedHours: 2.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Salem', distanceKm: 310, estimatedHours: 6.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Erode', distanceKm: 370, estimatedHours: 7.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Coimbatore', distanceKm: 475, estimatedHours: 9.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Tiruchirappalli', distanceKm: 410, estimatedHours: 7.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Madurai', distanceKm: 540, estimatedHours: 9.5, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Tirupati', destination: 'Puducherry', distanceKm: 230, estimatedHours: 5.0, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Kalahasti', destination: 'Chennai (Kilambakkam)', distanceKm: 120, estimatedHours: 2.8, isGhatRoute: false, ghatKm: 0 },
+  { origin: 'Nellore', destination: 'Chennai (Kilambakkam)', distanceKm: 175, estimatedHours: 3.5, isGhatRoute: false, ghatKm: 0 }
 ];
 
+// Comprehensive Tamil Nadu Mofussil Bus Terminals, District Hubs & Interstate Stations
 export const TN_CITIES = [
-  'Chennai (Kilambakkam)',
-  'Chennai (CMBT)',
-  'Coimbatore',
-  'Madurai',
-  'Tiruchirappalli',
-  'Salem',
-  'Tirunelveli',
-  'Erode',
-  'Vellore',
-  'Thanjavur',
-  'Dindigul',
+  // Chennai Mofussil Bus Stands
+  'Chennai (Kilambakkam - KCBT)',
+  'Chennai (Koyambedu - CMBT)',
+  'Chennai (Madhavaram - MMCT)',
+
+  // Coimbatore Mofussil Bus Stands
+  'Coimbatore (Gandhipuram SETC)',
+  'Coimbatore (Gandhipuram Central)',
+  'Coimbatore (Singanallur BS)',
+  'Coimbatore (Ukkadam BS)',
+  'Coimbatore (Mettupalayam Rd BS)',
+
+  // Madurai Mofussil Bus Stands
+  'Madurai (Mattuthavani - MIBT)',
+  'Madurai (Arapalayam BS)',
+  'Madurai (Periyar BS)',
+
+  // Tiruchirappalli Mofussil Bus Stands
+  'Tiruchirappalli (Central BS)',
+  'Tiruchirappalli (Panjapur IBT)',
+  'Tiruchirappalli (Chatram BS)',
+
+  // Salem Mofussil Bus Stands
+  'Salem (New Bus Stand)',
+  'Salem (Old Bus Stand)',
+
+  // Tirunelveli Mofussil Bus Stands
+  'Tirunelveli (New Bus Stand)',
+
+  // Key District Headquarters & Municipal Hubs
+  'Erode (Central BS)',
+  'Vellore (New Bus Stand)',
+  'Thanjavur (New Bus Stand)',
+  'Tiruppur (Kovil Vazhi BS)',
+  'Tiruppur (Old BS)',
+  'Dindigul (Central BS)',
   'Kanyakumari',
-  'Nagercoil',
+  'Nagercoil (Vadasery BS)',
+  'Thoothukudi (New BS)',
   'Ooty (Udhagamandalam)',
+  'Coonoor',
+  'Kotagiri',
+  'Gudalur',
   'Kodaikanal',
+  'Yercaud',
+  'Valparai',
   'Kumbakonam',
+  'Rameswaram',
+  'Ramanathapuram',
+  'Tiruvannamalai',
+  'Kanchipuram',
+  'Chengalpattu',
+  'Tiruvallur',
   'Villupuram',
-  'Karur',
-  'Krishnagiri',
-  'Dharmapuri',
-  'Thoothukkudi',
   'Kallakurichi',
-  'Pudukottai',
-  'Sivagangai'
+  'Cuddalore',
+  'Chidambaram',
+  'Dharmapuri',
+  'Krishnagiri',
+  'Hosur (Central BS)',
+  'Namakkal',
+  'Karur',
+  'Pudukkottai',
+  'Sivagangai',
+  'Karaikudi',
+  'Virudhunagar',
+  'Sivakasi',
+  'Tenkasi (Courtallam)',
+  'Shenkottai',
+  'Tiruchendur',
+  'Theni',
+  'Bodinayakanur',
+  'Cumbum',
+  'Megamalai',
+  'Palani',
+  'Pollachi',
+  'Mettupalayam',
+  'Nagapattinam',
+  'Velankanni',
+  'Mayiladuthurai',
+  'Tiruvarur',
+  'Ariyalur',
+  'Perambalur',
+  'Ranipet',
+  'Tirupathur',
+  'Puducherry',
+
+  // Interstate Hubs with High Tamil Nadu Bus Demand
+  'Bengaluru (Shantinagar BS)',
+  'Bengaluru (Satellite BS - Mysore Rd)',
+  'Mysuru',
+  'Tirupati',
+  'Kalahasti',
+  'Nellore',
+  'Thiruvananthapuram',
+  'Kochi (Ernakulam)',
+  'Palakkad',
+  'Guruvayur',
+  'Munnar',
+  'Kozhikode'
 ];
+
+// District mapping and Hill Station registry
+export const HILL_STATIONS = new Set([
+  'Ooty (Udhagamandalam)',
+  'Coonoor',
+  'Kotagiri',
+  'Gudalur',
+  'Kodaikanal',
+  'Yercaud',
+  'Valparai',
+  'Megamalai',
+  'Kumily',
+  'Munnar'
+]);
+
+// City Lat/Lng Coordinates for road distance calculation
+export const CITY_COORDINATES: Record<string, { lat: number; lng: number }> = {
+  // Chennai Mofussil Bus Stands
+  'Chennai (Kilambakkam - KCBT)': { lat: 12.8718, lng: 80.0825 },
+  'Chennai (Kilambakkam)': { lat: 12.8718, lng: 80.0825 },
+  'Chennai (Koyambedu - CMBT)': { lat: 13.0673, lng: 80.2067 },
+  'Chennai (CMBT)': { lat: 13.0673, lng: 80.2067 },
+  'Chennai (Madhavaram - MMCT)': { lat: 13.1492, lng: 80.2312 },
+  'Chennai (Madhavaram)': { lat: 13.1492, lng: 80.2312 },
+
+  // Coimbatore Mofussil Bus Stands
+  'Coimbatore (Gandhipuram SETC)': { lat: 11.0180, lng: 76.9670 },
+  'Coimbatore (Gandhipuram Central)': { lat: 11.0195, lng: 76.9660 },
+  'Coimbatore (Singanallur BS)': { lat: 11.0001, lng: 77.0260 },
+  'Coimbatore (Ukkadam BS)': { lat: 10.9902, lng: 76.9620 },
+  'Coimbatore (Mettupalayam Rd BS)': { lat: 11.0370, lng: 76.9490 },
+  'Coimbatore': { lat: 11.0168, lng: 76.9558 },
+
+  // Madurai Mofussil Bus Stands
+  'Madurai (Mattuthavani - MIBT)': { lat: 9.9450, lng: 78.1560 },
+  'Madurai (Arapalayam BS)': { lat: 9.9320, lng: 78.1060 },
+  'Madurai (Periyar BS)': { lat: 9.9170, lng: 78.1130 },
+  'Madurai': { lat: 9.9252, lng: 78.1198 },
+
+  // Tiruchirappalli Mofussil Bus Stands
+  'Tiruchirappalli (Central BS)': { lat: 10.8030, lng: 78.6860 },
+  'Tiruchirappalli (Panjapur IBT)': { lat: 10.7450, lng: 78.6780 },
+  'Tiruchirappalli (Chatram BS)': { lat: 10.8350, lng: 78.6940 },
+  'Tiruchirappalli': { lat: 10.7905, lng: 78.7047 },
+
+  // Salem Mofussil Bus Stands
+  'Salem (New Bus Stand)': { lat: 11.6700, lng: 78.1400 },
+  'Salem (Old Bus Stand)': { lat: 11.6550, lng: 78.1590 },
+  'Salem': { lat: 11.6643, lng: 78.1460 },
+
+  // Tirunelveli Mofussil Bus Stands
+  'Tirunelveli (New Bus Stand)': { lat: 8.7180, lng: 77.7490 },
+  'Tirunelveli': { lat: 8.7139, lng: 77.7567 },
+
+  // District Hubs
+  'Erode (Central BS)': { lat: 11.3410, lng: 77.7172 },
+  'Erode': { lat: 11.3410, lng: 77.7172 },
+  'Vellore (New Bus Stand)': { lat: 12.9250, lng: 79.1380 },
+  'Vellore': { lat: 12.9165, lng: 79.1325 },
+  'Thanjavur (New Bus Stand)': { lat: 10.7740, lng: 79.1220 },
+  'Thanjavur': { lat: 10.7870, lng: 79.1378 },
+  'Tiruppur (Kovil Vazhi BS)': { lat: 11.0770, lng: 77.3620 },
+  'Tiruppur (Old BS)': { lat: 11.1085, lng: 77.3411 },
+  'Tiruppur': { lat: 11.1085, lng: 77.3411 },
+  'Dindigul (Central BS)': { lat: 10.3650, lng: 77.9780 },
+  'Dindigul': { lat: 10.3673, lng: 77.9803 },
+  'Kanyakumari': { lat: 8.0883, lng: 77.5385 },
+  'Nagercoil (Vadasery BS)': { lat: 8.1910, lng: 77.4320 },
+  'Nagercoil': { lat: 8.1833, lng: 77.4119 },
+  'Thoothukudi (New BS)': { lat: 8.7840, lng: 78.1280 },
+  'Thoothukudi': { lat: 8.7642, lng: 78.1348 },
+  'Ooty (Udhagamandalam)': { lat: 11.4102, lng: 76.6950 },
+  'Coonoor': { lat: 11.3530, lng: 76.7959 },
+  'Kotagiri': { lat: 11.4230, lng: 76.8660 },
+  'Gudalur': { lat: 11.5034, lng: 76.4912 },
+  'Kodaikanal': { lat: 10.2381, lng: 77.4892 },
+  'Yercaud': { lat: 11.7753, lng: 78.2093 },
+  'Valparai': { lat: 10.3263, lng: 76.9554 },
+  'Kumbakonam': { lat: 10.9602, lng: 79.3845 },
+  'Rameswaram': { lat: 9.2876, lng: 79.3129 },
+  'Ramanathapuram': { lat: 9.3639, lng: 78.8395 },
+  'Tiruvannamalai': { lat: 12.2253, lng: 79.0747 },
+  'Kanchipuram': { lat: 12.8342, lng: 79.7036 },
+  'Chengalpattu': { lat: 12.6841, lng: 79.9836 },
+  'Tiruvallur': { lat: 13.1432, lng: 79.9079 },
+  'Villupuram': { lat: 11.9401, lng: 79.4861 },
+  'Kallakurichi': { lat: 11.7383, lng: 78.9639 },
+  'Cuddalore': { lat: 11.7480, lng: 79.7714 },
+  'Chidambaram': { lat: 11.3992, lng: 79.6936 },
+  'Dharmapuri': { lat: 12.1211, lng: 78.1582 },
+  'Krishnagiri': { lat: 12.5186, lng: 78.2137 },
+  'Hosur (Central BS)': { lat: 12.7380, lng: 77.8280 },
+  'Hosur': { lat: 12.7409, lng: 77.8253 },
+  'Namakkal': { lat: 11.2189, lng: 78.1674 },
+  'Karur': { lat: 10.9601, lng: 78.0766 },
+  'Pudukkottai': { lat: 10.3797, lng: 78.8208 },
+  'Sivagangai': { lat: 9.8433, lng: 78.4809 },
+  'Karaikudi': { lat: 10.0668, lng: 78.7750 },
+  'Virudhunagar': { lat: 9.5680, lng: 77.9624 },
+  'Sivakasi': { lat: 9.4533, lng: 77.7971 },
+  'Tenkasi (Courtallam)': { lat: 8.9594, lng: 77.3150 },
+  'Shenkottai': { lat: 8.9833, lng: 77.2500 },
+  'Tiruchendur': { lat: 8.4969, lng: 78.1256 },
+  'Theni': { lat: 10.0104, lng: 77.4768 },
+  'Bodinayakanur': { lat: 10.0107, lng: 77.3486 },
+  'Cumbum': { lat: 9.7344, lng: 77.2811 },
+  'Megamalai': { lat: 9.7700, lng: 77.3800 },
+  'Palani': { lat: 10.4503, lng: 77.5186 },
+  'Pollachi': { lat: 10.6609, lng: 77.0048 },
+  'Mettupalayam': { lat: 11.3000, lng: 76.9500 },
+  'Nagapattinam': { lat: 10.7672, lng: 79.8424 },
+  'Velankanni': { lat: 10.6811, lng: 79.8439 },
+  'Mayiladuthurai': { lat: 11.1075, lng: 79.6524 },
+  'Tiruvarur': { lat: 10.7725, lng: 79.6366 },
+  'Ariyalur': { lat: 11.1401, lng: 79.0786 },
+  'Perambalur': { lat: 11.2342, lng: 78.8820 },
+  'Ranipet': { lat: 12.9272, lng: 79.3330 },
+  'Tirupathur': { lat: 12.4925, lng: 78.5678 },
+  'Puducherry': { lat: 11.9416, lng: 79.8083 },
+
+  // Interstate Hubs
+  'Bengaluru (Shantinagar BS)': { lat: 12.9540, lng: 77.5930 },
+  'Bengaluru (Satellite BS - Mysore Rd)': { lat: 12.9510, lng: 77.5450 },
+  'Mysuru': { lat: 12.2958, lng: 76.6394 },
+  'Tirupati': { lat: 13.6288, lng: 79.4192 },
+  'Kalahasti': { lat: 13.7500, lng: 79.7000 },
+  'Nellore': { lat: 14.4426, lng: 79.9865 },
+  'Thiruvananthapuram': { lat: 8.5241, lng: 76.9366 },
+  'Kochi (Ernakulam)': { lat: 9.9816, lng: 76.2999 },
+  'Palakkad': { lat: 10.7867, lng: 76.6548 },
+  'Guruvayur': { lat: 10.5946, lng: 76.0422 },
+  'Munnar': { lat: 10.0889, lng: 77.0595 },
+  'Kozhikode': { lat: 11.2588, lng: 75.7804 }
+};
+
+/**
+ * Intelligent Road Distance Resolver between any two Tamil Nadu cities
+ */
+export function getRoadDistanceAndGhat(origin: string, destination: string): { distanceKm: number; isGhat: boolean } {
+  if (!origin || !destination || origin === destination) {
+    return { distanceKm: 0, isGhat: false };
+  }
+
+  const normalize = (name: string) => {
+    return name
+      .toLowerCase()
+      .replace(/\s*-\s*kcbt/i, '')
+      .replace(/\s*-\s*cmbt/i, '')
+      .replace(/\s*-\s*mmct/i, '')
+      .replace(/\s*-\s*mibt/i, '')
+      .replace(/\s*\(.*?\)/g, '')
+      .trim();
+  };
+
+  const normOrig = normalize(origin);
+  const normDest = normalize(destination);
+
+  // 1. Direct or reverse match in calibrated route database
+  const matched = POPULAR_ROUTES.find(
+    r => {
+      const ro = normalize(r.origin);
+      const rd = normalize(r.destination);
+      return (ro === normOrig && rd === normDest) || (ro === normDest && rd === normOrig);
+    }
+  );
+  if (matched) {
+    return { distanceKm: matched.distanceKm, isGhat: matched.isGhatRoute };
+  }
+
+  // 2. Compute via coordinates with highway winding factor (1.28x)
+  const c1 = CITY_COORDINATES[origin];
+  const c2 = CITY_COORDINATES[destination];
+  const isGhat = HILL_STATIONS.has(origin) || HILL_STATIONS.has(destination);
+
+  if (c1 && c2) {
+    const R = 6371; // Earth radius in km
+    const dLat = ((c2.lat - c1.lat) * Math.PI) / 180;
+    const dLon = ((c2.lng - c1.lng) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((c1.lat * Math.PI) / 180) * Math.cos((c2.lat * Math.PI) / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const crowKm = R * c;
+
+    // Road winding factor (highways have turns, intersections, bypasses)
+    const windingFactor = isGhat ? 1.38 : 1.28;
+    const estimatedRoadKm = Math.round(crowKm * windingFactor);
+    return { distanceKm: Math.max(15, estimatedRoadKm), isGhat };
+  }
+
+  // Fallback
+  return { distanceKm: 180, isGhat };
+}
+

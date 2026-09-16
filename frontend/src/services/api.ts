@@ -1,5 +1,5 @@
 import { Motel, TrainingInstitute, FareRate, FareCalculateRequest, FareCalculateResponse } from '../types';
-import { INITIAL_MOTELS, INITIAL_INSTITUTES, INITIAL_FARE_RATES, POPULAR_ROUTES } from '../data/mockData';
+import { INITIAL_MOTELS, INITIAL_INSTITUTES, INITIAL_FARE_RATES, POPULAR_ROUTES, getRoadDistanceAndGhat } from '../data/mockData';
 
 const API_BASE = '/api';
 
@@ -90,20 +90,12 @@ export const apiService = {
       let isGhatApplied = !!req.isGhatRoad;
 
       if (!distanceKm) {
-        const matched = POPULAR_ROUTES.find(
-          r => (r.origin.toLowerCase() === req.originCity.toLowerCase() && r.destination.toLowerCase() === req.destinationCity.toLowerCase()) ||
-               (r.origin.toLowerCase() === req.destinationCity.toLowerCase() && r.destination.toLowerCase() === req.originCity.toLowerCase())
-        );
-        if (matched) {
-          distanceKm = matched.distanceKm;
-          estimatedHours = matched.estimatedHours;
-          if (matched.isGhatRoute) isGhatApplied = true;
-        } else {
-          distanceKm = 240;
-          estimatedHours = 4.5;
-        }
+        const resolved = getRoadDistanceAndGhat(req.originCity, req.destinationCity);
+        distanceKm = resolved.distanceKm;
+        if (resolved.isGhat) isGhatApplied = true;
+        estimatedHours = +(distanceKm / 55).toFixed(1);
       } else {
-        estimatedHours = +(distanceKm / 50).toFixed(1);
+        estimatedHours = +(distanceKm / 55).toFixed(1);
       }
 
       const rawFare = distanceKm * rate.ratePerKm;
