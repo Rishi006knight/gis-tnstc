@@ -7,12 +7,16 @@ import { GeneralInfoPage } from './pages/GeneralInfoPage';
 import { MotelMapPage } from './pages/MotelMapPage';
 import { TrainingInstituteMapPage } from './pages/TrainingInstituteMapPage';
 import { FareCalculatorPage } from './pages/FareCalculatorPage';
+import { SetcDashboard } from './pages/SetcDashboard';
+import { SetcHistoryPage } from './pages/SetcHistoryPage';
+import { SetcReservationCentresMapPage } from './pages/SetcReservationCentresMapPage';
 
 export const App: React.FC = () => {
   // Sync state with URL hash for easy bookmarking and refresh
   const getInitialPage = (): PageView => {
     const hash = window.location.hash.replace('#', '') as PageView;
-    const validPages: PageView[] = ['home', 'general-info', 'motels', 'training-institutes', 'fare-calculator'];
+    const validPages: PageView[] = ['home', 'general-info', 'motels', 'training-institutes', 'fare-calculator',
+      'setc', 'setc-routes', 'setc-reservation-centres', 'setc-depots', 'setc-special-services', 'setc-history'];
     return validPages.includes(hash) ? hash : 'home';
   };
 
@@ -27,7 +31,8 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') as PageView;
-      const validPages: PageView[] = ['home', 'general-info', 'motels', 'training-institutes', 'fare-calculator'];
+      const validPages: PageView[] = ['home', 'general-info', 'motels', 'training-institutes', 'fare-calculator',
+        'setc', 'setc-routes', 'setc-reservation-centres', 'setc-depots', 'setc-special-services', 'setc-history'];
       if (validPages.includes(hash)) {
         setCurrentPage(hash);
       }
@@ -48,6 +53,14 @@ export const App: React.FC = () => {
         {currentPage === 'motels' && <MotelMapPage />}
         {currentPage === 'training-institutes' && <TrainingInstituteMapPage />}
         {currentPage === 'fare-calculator' && <FareCalculatorPage />}
+        
+        {/* Phase 2: SETC Modules */}
+        {currentPage === 'setc' && <SetcDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'setc-routes' && <div className="text-center py-20 text-xl font-bold text-slate-400">SETC Routes Map (Coming Soon)</div>}
+        {currentPage === 'setc-reservation-centres' && <SetcReservationCentresMapPage onNavigate={handleNavigate} />}
+        {currentPage === 'setc-depots' && <div className="text-center py-20 text-xl font-bold text-slate-400">Depots & Outstations Map (Coming Soon)</div>}
+        {currentPage === 'setc-special-services' && <div className="text-center py-20 text-xl font-bold text-slate-400">Special Services (Coming Soon)</div>}
+        {currentPage === 'setc-history' && <SetcHistoryPage onNavigate={handleNavigate} />}
       </main>
 
       {/* Footer */}

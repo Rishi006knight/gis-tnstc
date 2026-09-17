@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bus, ShieldCheck, ExternalLink, MapPin, Phone, Mail } from 'lucide-react';
+import { ShieldCheck, ExternalLink, MapPin, Phone, Mail } from 'lucide-react';
 import { PageView } from '../../types';
 
 interface FooterProps {

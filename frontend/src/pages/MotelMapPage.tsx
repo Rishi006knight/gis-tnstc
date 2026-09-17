@@ -17,7 +17,6 @@ import {
   Info,
   X,
   Navigation,
-  Compass,
   RotateCcw,
   Map,
   Layers

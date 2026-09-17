@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageView } from '../../types';
-import { Bus, MapPin, GraduationCap, Calculator, Home, ChevronRight, Compass } from 'lucide-react';
+import { MapPin, GraduationCap, Calculator, Home, ChevronRight, Compass } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: PageView;
@@ -35,6 +35,43 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           { label: 'General Information', page: 'general-info' as PageView },
           { label: 'Travel Fare Calculator', page: 'fare-calculator' as PageView }
         ];
+      case 'setc':
+        return [
+          { label: 'Home', page: 'home' as PageView },
+          { label: 'SETC Dashboard', page: 'setc' as PageView }
+        ];
+      case 'setc-routes':
+        return [
+          { label: 'Home', page: 'home' as PageView },
+          { label: 'SETC Dashboard', page: 'setc' as PageView },
+          { label: 'Routes GIS', page: 'setc-routes' as PageView }
+        ];
+      case 'setc-reservation-centres':
+        return [
+          { label: 'Home', page: 'home' as PageView },
+          { label: 'SETC Dashboard', page: 'setc' as PageView },
+          { label: 'Reservation Centres', page: 'setc-reservation-centres' as PageView }
+        ];
+      case 'setc-depots':
+        return [
+          { label: 'Home', page: 'home' as PageView },
+          { label: 'SETC Dashboard', page: 'setc' as PageView },
+          { label: 'Depots & Outstations', page: 'setc-depots' as PageView }
+        ];
+      case 'setc-special-services':
+        return [
+          { label: 'Home', page: 'home' as PageView },
+          { label: 'SETC Dashboard', page: 'setc' as PageView },
+          { label: 'Special Services', page: 'setc-special-services' as PageView }
+        ];
+      case 'setc-history':
+        return [
+          { label: 'Home', page: 'home' as PageView },
+          { label: 'SETC Dashboard', page: 'setc' as PageView },
+          { label: 'History & Awards', page: 'setc-history' as PageView }
+        ];
+      default:
+        return [{ label: 'Home', page: 'home' as PageView }];
     }
   };
 
@@ -166,13 +203,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
         {/* Responsive Breadcrumbs Bar */}
         <div className="py-2 border-t border-slate-100 flex items-center space-x-2 text-xs text-slate-500 overflow-x-auto whitespace-nowrap">
-          {breadcrumbs.map((crumb, idx) => (
+          {breadcrumbs?.map((crumb, idx) => (
             <React.Fragment key={crumb.label}>
               {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />}
               <button
                 onClick={() => onNavigate(crumb.page)}
                 className={`hover:text-tnstc-blue transition font-medium ${
-                  idx === breadcrumbs.length - 1 ? 'text-tnstc-blue font-semibold' : ''
+                  breadcrumbs && idx === breadcrumbs.length - 1 ? 'text-tnstc-blue font-semibold' : ''
                 }`}
               >
                 {crumb.label}

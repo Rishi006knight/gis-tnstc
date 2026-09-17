@@ -96,3 +96,95 @@ CREATE TABLE routes (
 );
 
 CREATE UNIQUE INDEX idx_route_pair ON routes (origin_city, destination_city);
+
+-- ==============================================================================
+-- Phase 2: SETC Tables
+-- ==============================================================================
+
+-- 7. SETC Routes
+CREATE TABLE setc_routes (
+    route_id SERIAL PRIMARY KEY,
+    route_code VARCHAR(50),
+    origin VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    stops TEXT,
+    distance NUMERIC(6, 2),
+    travel_time VARCHAR(50),
+    service_type VARCHAR(100),
+    fare NUMERIC(6, 2),
+    geometry GEOMETRY(LineString, 4326),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_setc_routes_geometry ON setc_routes USING GIST (geometry);
+
+-- 8. SETC Reservation Centres
+CREATE TABLE reservation_centres (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    counter_address TEXT NOT NULL,
+    district VARCHAR(100),
+    location GEOMETRY(Point, 4326),
+    source_url VARCHAR(255),
+    last_verified DATE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_reservation_centres_location ON reservation_centres USING GIST (location);
+CREATE INDEX idx_reservation_centres_district ON reservation_centres (district);
+
+-- 9. SETC Depots & Outstations
+CREATE TABLE depots (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    state VARCHAR(100) DEFAULT 'Tamil Nadu',
+    address TEXT,
+    location GEOMETRY(Point, 4326),
+    type VARCHAR(50) CHECK (type IN ('depot', 'bus_body_unit', 'workshop', 'training_centre', 'fc_unit', 'driving_school', 'outstation')),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_depots_location ON depots USING GIST (location);
+CREATE INDEX idx_depots_type ON depots (type);
+
+-- 10. SETC Special Services
+CREATE TABLE special_services (
+    id SERIAL PRIMARY KEY,
+    service_name VARCHAR(255) NOT NULL,
+    origin VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    period_text VARCHAR(100),
+    description TEXT,
+    fare NUMERIC(6, 2),
+    distance_km NUMERIC(6, 2),
+    geometry GEOMETRY(LineString, 4326),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_special_services_geometry ON special_services USING GIST (geometry);
+
+-- 11. SETC History & Awards
+CREATE TABLE setc_history (
+    id SERIAL PRIMARY KEY,
+    year_range VARCHAR(50),
+    fleet_count INT,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE setc_awards (
+    id SERIAL PRIMARY KEY,
+    award_name VARCHAR(255) NOT NULL,
+    category VARCHAR(255),
+    awarding_body VARCHAR(255),
+    years TEXT[],
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 12. Geocoding Failures
+CREATE TABLE geocoding_failures (
+    id SERIAL PRIMARY KEY,
+    table_name VARCHAR(50) NOT NULL,
+    record_id INT NOT NULL,
+    name VARCHAR(255),
+    query_used TEXT,
+    error_message TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

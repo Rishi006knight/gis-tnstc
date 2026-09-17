@@ -79,4 +79,49 @@ export interface FareCalculateResponse {
   note: string;
 }
 
-export type PageView = 'home' | 'general-info' | 'motels' | 'training-institutes' | 'fare-calculator';
+export type PageView = 'home' | 'general-info' | 'motels' | 'training-institutes' | 'fare-calculator' 
+  | 'setc' | 'setc-routes' | 'setc-reservation-centres' | 'setc-depots' | 'setc-special-services' | 'setc-history';
+
+export interface SetcReservationCentre {
+  id: number;
+  name: string;
+  counterAddress: string;
+  district: string;
+  latitude: number;
+  longitude: number;
+}
+
+export interface SetcDepot {
+  id: number;
+  name: string;
+  state: string;
+  address: string;
+  type: string;
+  latitude: number;
+  longitude: number;
+}
+
+export interface SetcSpecialService {
+  id: number;
+  serviceName: string;
+  origin: string;
+  destination: string;
+  periodText: string;
+  description: string;
+}
+
+export interface SetcHistory {
+  id: number;
+  yearRange: string;
+  fleetCount: number;
+  title: string;
+  description: string;
+}
+
+export interface SetcAward {
+  id: number;
+  awardName: string;
+  category: string;
+  awardingBody: string;
+  years: string[];
+}

@@ -4,7 +4,6 @@ import { apiService } from '../services/api';
 import {
   INITIAL_FARE_RATES,
   TN_CITIES,
-  POPULAR_ROUTES,
   HILL_STATIONS,
   getRoadDistanceAndGhat
 } from '../data/mockData';

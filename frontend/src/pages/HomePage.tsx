@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageView } from '../types';
-import { Bus, MapPin, GraduationCap, Calculator, ArrowRight, Clock, AlertCircle, Sparkles, Building2, Navigation, Layers } from 'lucide-react';
+import { MapPin, GraduationCap, Calculator, ArrowRight, Clock, Sparkles, Building2, Layers } from 'lucide-react';
 
 interface HomePageProps {
   onNavigate: (page: PageView) => void;
@@ -90,32 +90,36 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: SETC (Under Research) */}
-          <div className="relative group bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 shadow-sm transition-all duration-200 opacity-80 hover:opacity-90">
+          <div 
+            onClick={() => onNavigate('setc')}
+            className="relative group bg-gradient-to-br from-white via-green-50/40 to-green-100/50 border-2 border-emerald-500/40 rounded-2xl p-6 sm:p-8 shadow-lg shadow-emerald-500/10 hover:shadow-xl hover:shadow-emerald-500/15 hover:border-emerald-500 transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+          >
             <div className="flex items-start justify-between">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500">
-                <Navigation className="w-6 h-6" />
+              <div className="w-14 h-14 rounded-2xl bg-white p-1 shadow-md border border-emerald-200 group-hover:scale-110 transition-transform flex items-center justify-center shrink-0">
+                <img src="/setc-logo.png" alt="SETC" className="w-full h-full object-contain rounded-xl" />
               </div>
-              <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100/80 text-amber-800 border border-amber-300/60">
-                <Clock className="w-3.5 h-3.5 mr-1 text-amber-600" />
-                Under Research
+              <span className="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-sm animate-pulse">
+                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Active Module</span>
               </span>
             </div>
 
             <div className="mt-5 space-y-2">
-              <h3 className="text-xl font-bold text-slate-800 group-hover:text-slate-900">
-                SETC
+              <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors flex items-center space-x-2">
+                <span>SETC Dashboard</span>
+                <ArrowRight className="w-5 h-5 text-emerald-600 group-hover:translate-x-1.5 transition-transform" />
               </h3>
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+              <p className="text-xs font-medium text-emerald-700 uppercase tracking-wider">
                 State Express Transport Corporation
               </p>
-              <p className="text-sm text-slate-500 leading-relaxed pt-1">
+              <p className="text-sm text-slate-600 leading-relaxed pt-1">
                 Interstate and long-distance intercity express services connecting major pilgrimage and metropolitan centers across South India.
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-medium">
+            <div className="mt-6 pt-4 border-t border-emerald-200/60 flex items-center justify-between text-xs text-slate-500 font-medium">
               <span>Depots, Route Network & Schedules</span>
-              <span className="italic">Available in Phase 2</span>
+              <span className="text-emerald-600 font-bold">Phase 2 Active</span>
             </div>
           </div>
 

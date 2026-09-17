@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageView } from '../types';
-import { UtensilsCrossed, GraduationCap, Calculator, ArrowRight, MapPin, Sparkles, Shield, Compass, ChevronRight } from 'lucide-react';
+import { UtensilsCrossed, GraduationCap, Calculator, ArrowRight, Compass } from 'lucide-react';
 
 interface GeneralInfoPageProps {
   onNavigate: (page: PageView) => void;

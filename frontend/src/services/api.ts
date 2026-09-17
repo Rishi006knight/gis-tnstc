@@ -1,7 +1,7 @@
 import { Motel, TrainingInstitute, FareRate, FareCalculateRequest, FareCalculateResponse } from '../types';
-import { INITIAL_MOTELS, INITIAL_INSTITUTES, INITIAL_FARE_RATES, POPULAR_ROUTES, getRoadDistanceAndGhat } from '../data/mockData';
+import { INITIAL_MOTELS, INITIAL_INSTITUTES, INITIAL_FARE_RATES, getRoadDistanceAndGhat } from '../data/mockData';
 
-const API_BASE = '/api';
+export const API_BASE_URL = '/api';
 
 export const apiService = {
   async getMotels(district?: string, query?: string): Promise<Motel[]> {
@@ -10,7 +10,7 @@ export const apiService = {
       if (district && district !== 'All') params.append('district', district);
       if (query) params.append('query', query);
 
-      const res = await fetch(`${API_BASE}/motels?${params.toString()}`);
+      const res = await fetch(`${API_BASE_URL}/motels?${params.toString()}`);
       if (!res.ok) throw new Error('API fetch failed');
       return await res.json();
     } catch {
@@ -39,7 +39,7 @@ export const apiService = {
       if (course && course !== 'All') params.append('course', course);
       if (query) params.append('query', query);
 
-      const res = await fetch(`${API_BASE}/training-institutes?${params.toString()}`);
+      const res = await fetch(`${API_BASE_URL}/training-institutes?${params.toString()}`);
       if (!res.ok) throw new Error('API fetch failed');
       return await res.json();
     } catch {
@@ -64,7 +64,7 @@ export const apiService = {
 
   async getFareRates(): Promise<FareRate[]> {
     try {
-      const res = await fetch(`${API_BASE}/fare/rates`);
+      const res = await fetch(`${API_BASE_URL}/reservation-centres`);
       if (!res.ok) throw new Error('API fetch failed');
       const data = await res.json();
       return (Array.isArray(data) && data.length > 0) ? data : INITIAL_FARE_RATES;
@@ -75,7 +75,7 @@ export const apiService = {
 
   async calculateFare(req: FareCalculateRequest): Promise<FareCalculateResponse> {
     try {
-      const res = await fetch(`${API_BASE}/fare/calculate`, {
+      const res = await fetch(`${API_BASE_URL}/fare-calculator/calculate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(req),
@@ -123,8 +123,8 @@ export const apiService = {
         flexiSurgeAmount: flexiSurge,
         totalFare,
         isGhatApplied,
-        isPeakDayApplied: isPeak,
-        dayOfWeek: dayNames[dayNum],
+        isPeakDayApplied: false,
+        dayOfWeek: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
         note
       };
     }
