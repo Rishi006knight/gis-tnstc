@@ -20,3 +20,18 @@ backend/*.log
 Thumbs.db
 .DS_Store
 powershell.bat
+*.bat
+
+# Temporary scratch files, scrapers and DOM dumps
+*.html
+!frontend/index.html
+*.py
+scratch/
+temp/
+*.log
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
