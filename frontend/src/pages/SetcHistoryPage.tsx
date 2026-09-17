@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PageView, SetcHistory, SetcAward } from '../types';
 import { ArrowLeft, Clock, Award, TrendingUp, Bus } from 'lucide-react';
-import { API_BASE_URL } from '../services/api';
+import { apiService } from '../services/api';
 
 interface SetcHistoryPageProps {
   onNavigate: (page: PageView) => void;
@@ -15,13 +15,12 @@ export const SetcHistoryPage: React.FC<SetcHistoryPageProps> = ({ onNavigate }) 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [historyRes, awardsRes] = await Promise.all([
-          fetch(`${API_BASE_URL}/setc/history`),
-          fetch(`${API_BASE_URL}/setc/awards`)
+        const [historyData, awardsData] = await Promise.all([
+          apiService.getSetcHistory(),
+          apiService.getSetcAwards()
         ]);
-
-        if (historyRes.ok) setHistoryItems(await historyRes.json());
-        if (awardsRes.ok) setAwards(await awardsRes.json());
+        setHistoryItems(historyData);
+        setAwards(awardsData);
       } catch (error) {
         console.error('Failed to fetch SETC history/awards', error);
       } finally {

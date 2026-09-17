@@ -96,6 +96,7 @@ export interface SetcDepot {
   name: string;
   state: string;
   address: string;
+  phone?: string;
   type: string;
   latitude: number;
   longitude: number;
@@ -108,6 +109,9 @@ export interface SetcSpecialService {
   destination: string;
   periodText: string;
   description: string;
+  fare?: number;
+  distanceKm?: number;
+  coords?: [number, number][];
 }
 
 export interface SetcHistory {
@@ -125,3 +129,17 @@ export interface SetcAward {
   awardingBody: string;
   years: string[];
 }
+
+export interface SetcRoute {
+  id: number;
+  routeCode: string;
+  origin: string;
+  destination: string;
+  stops: string;
+  distance: number;
+  travelTime: string;
+  serviceType: string;
+  fare: number;
+  coords: [number, number][];
+}
+

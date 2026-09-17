@@ -10,6 +10,9 @@ import { FareCalculatorPage } from './pages/FareCalculatorPage';
 import { SetcDashboard } from './pages/SetcDashboard';
 import { SetcHistoryPage } from './pages/SetcHistoryPage';
 import { SetcReservationCentresMapPage } from './pages/SetcReservationCentresMapPage';
+import { SetcDepotsMapPage } from './pages/SetcDepotsMapPage';
+import { SetcRoutesMapPage } from './pages/SetcRoutesMapPage';
+import { SetcSpecialServicesPage } from './pages/SetcSpecialServicesPage';
 
 export const App: React.FC = () => {
   // Sync state with URL hash for easy bookmarking and refresh
@@ -56,10 +59,10 @@ export const App: React.FC = () => {
         
         {/* Phase 2: SETC Modules */}
         {currentPage === 'setc' && <SetcDashboard onNavigate={handleNavigate} />}
-        {currentPage === 'setc-routes' && <div className="text-center py-20 text-xl font-bold text-slate-400">SETC Routes Map (Coming Soon)</div>}
+        {currentPage === 'setc-routes' && <SetcRoutesMapPage onNavigate={handleNavigate} />}
         {currentPage === 'setc-reservation-centres' && <SetcReservationCentresMapPage onNavigate={handleNavigate} />}
-        {currentPage === 'setc-depots' && <div className="text-center py-20 text-xl font-bold text-slate-400">Depots & Outstations Map (Coming Soon)</div>}
-        {currentPage === 'setc-special-services' && <div className="text-center py-20 text-xl font-bold text-slate-400">Special Services (Coming Soon)</div>}
+        {currentPage === 'setc-depots' && <SetcDepotsMapPage onNavigate={handleNavigate} />}
+        {currentPage === 'setc-special-services' && <SetcSpecialServicesPage onNavigate={handleNavigate} />}
         {currentPage === 'setc-history' && <SetcHistoryPage onNavigate={handleNavigate} />}
       </main>
 
